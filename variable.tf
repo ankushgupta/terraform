@@ -1,21 +1,15 @@
-variable "count" {
-    default = 1
-  }
-variable "region" {
-  description = "AWS region for hosting our your network"
-  default = "ap-south-1"
+variable "vpc_id" {
+  description = "String(required): The ID of the VPC in which to deploy"
+  default = "vpc-c2ac2fa9"
 }
-variable "public_key_path" {
-  description = "Enter the path to the SSH Public Key to add to AWS."
-  default = "/tmp/ec2.pem"
+
+variable "internal" {
+  description = "Bool(optional, false): Is this an internal NLB or not"
+  default     = false
 }
-variable "key_name" {
-  description = "Key name for SSHing into EC2"
-  default = "ec2"
-}
-variable "amis" {
-  description = "Base AMI to launch the instances"
-  default = {
-  ap-south-1 = "ami-8da8d2e2"
-  }
+
+
+variable "enable_deletion_protection" {
+  description = "Bool(optional, false): Whether to enable deletion protection of this NLB or not"
+  default     = false
 }
